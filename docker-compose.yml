@@ -7,20 +7,18 @@ services:
       context: .
     container_name: app
     environment:
-      - POSTGRES_USER = root
-      - POSTGRES_PASSWORD=root
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/EasyFood
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=root
-      - SPRING_JPA_HIBERNATE_DDL_AUTO=auto
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=juandiego0204
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
     ports:
       - "80:8080"
   db:
     image: postgres
     container_name: db
     environment:
-      - POSTGRES_USER = root
-      - POSTGRES_PASSWORD=root
-      - POSTGRES_DB=upc
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=juandiego0204
+      - POSTGRES_DB=EasyFood
     ports:
       - "5432:5432"
