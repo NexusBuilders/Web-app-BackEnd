@@ -5,6 +5,6 @@ import com.example.EasyFood.Customers.interfaces.rest.resources.CreateCustomerRe
 
 public class CreateCustomerCommandFromResourceAssembler {
     public static CreateCustomerCommand toCommandResource(CreateCustomerResource resource) {
-        return new CreateCustomerCommand(resource.firstName(),resource.lastName(),resource.email(),resource.phone());
+        return new CreateCustomerCommand(resource.firstName(),resource.lastName(),resource.email(),resource.phone(), resource.userId());
     }
 }
