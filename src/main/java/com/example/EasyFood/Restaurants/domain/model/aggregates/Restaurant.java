@@ -19,6 +19,7 @@ public class Restaurant extends AuditableAbstractAggregateRoot<Restaurant> {
     private String email;
     private String schedule;
     private String phone;
+    private int userId;
 
     public Restaurant(CreateRestaurantCommand command){
         this.name = command.name();
@@ -26,5 +27,6 @@ public class Restaurant extends AuditableAbstractAggregateRoot<Restaurant> {
         this.email = command.email();
         this.schedule = command.schedule();
         this.phone = command.phone();
+        this.userId = command.userId();
     }
 }

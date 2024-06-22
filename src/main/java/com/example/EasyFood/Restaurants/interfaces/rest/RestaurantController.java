@@ -1,9 +1,12 @@
 package com.example.EasyFood.Restaurants.interfaces.rest;
 
+import com.example.EasyFood.Orders.domain.model.queries.GetLunchesOrdersByOrderId;
+import com.example.EasyFood.Orders.interfaces.rest.resources.LunchOrderResource;
 import com.example.EasyFood.Orders.interfaces.rest.transform.LunchOrderResourceFromEntityAssembler;
 import com.example.EasyFood.Restaurants.domain.model.commands.UpdateRestaurantCommand;
 import com.example.EasyFood.Restaurants.domain.model.queries.GetAllRestaurantsQuery;
 import com.example.EasyFood.Restaurants.domain.model.queries.GetRestaurantByIdQuery;
+import com.example.EasyFood.Restaurants.domain.model.queries.GetRestaurantByUserIdQuery;
 import com.example.EasyFood.Restaurants.domain.service.RestaurantCommandService;
 import com.example.EasyFood.Restaurants.domain.service.RestaurantQueryService;
 import com.example.EasyFood.Restaurants.interfaces.rest.resources.CreateRestaurantResource;
@@ -66,6 +69,14 @@ public class RestaurantController {
         var restaurantResource = RestaurantResourceFromEntityAssembler.toResourceFromEntity(restaurant.get());
         return ResponseEntity.ok(restaurantResource);
     }
-
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<RestaurantResource>> getRestaurantByUserId(@PathVariable Long userId) {
+        var getRestaurantByUserId = new GetRestaurantByUserIdQuery(userId);
+        var restaurant = restaurantQueryService.handle(getRestaurantByUserId);
+        var restaurantResources = restaurant.stream()
+                .map(RestaurantResourceFromEntityAssembler::toResourceFromEntity)
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(restaurantResources);
+    }
 
 }

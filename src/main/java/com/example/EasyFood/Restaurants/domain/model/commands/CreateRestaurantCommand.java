@@ -7,6 +7,7 @@ public record CreateRestaurantCommand(
         @NotBlank String address,
         @NotBlank String email,
         @NotBlank String schedule,
-        @NotBlank String phone
+        @NotBlank String phone,
+        @NotBlank int userId
 ) {
 }
