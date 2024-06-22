@@ -7,9 +7,9 @@ services:
       context: .
     container_name: app
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/EasyFood
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=juandiego0204
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://easyfoodbd.postgres.database.azure.com/EasyFood
+      - SPRING_DATASOURCE_USERNAME=nexusbuilder
+      - SPRING_DATASOURCE_PASSWORD=EasyFood123
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
     ports:
       - "80:8080"
@@ -17,8 +17,8 @@ services:
     image: postgres
     container_name: db
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=juandiego0204
+      - POSTGRES_USER=nexusbuilder
+      - POSTGRES_PASSWORD=EasyFood123
       - POSTGRES_DB=EasyFood
     ports:
       - "5432:5432"
