@@ -5,6 +5,6 @@ import com.example.EasyFood.Orders.interfaces.rest.resources.CreateOrderResource
 
 public class CreateOrderCommandFromResourceAssembler {
     public static CreateOrderCommand toCommandResource(CreateOrderResource resource) {
-        return new CreateOrderCommand(resource.address(), resource.arriveTime(), resource.totalAmount());
+        return new CreateOrderCommand(resource.address(), resource.arriveTime(), resource.totalAmount(), resource.customerId());
     }
 }

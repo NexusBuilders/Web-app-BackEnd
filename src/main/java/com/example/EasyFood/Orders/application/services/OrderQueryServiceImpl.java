@@ -1,6 +1,7 @@
 package com.example.EasyFood.Orders.application.services;
 
 import com.example.EasyFood.Orders.domain.model.aggregates.Order;
+import com.example.EasyFood.Orders.domain.model.queries.GetOrderByCustomerIdQuery;
 import com.example.EasyFood.Orders.domain.model.queries.GetOrderByIdQuery;
 import com.example.EasyFood.Orders.domain.service.OrderQueryService;
 import com.example.EasyFood.Orders.infaestructure.persistence.jpa.OrderRepository;
@@ -19,5 +20,10 @@ public class OrderQueryServiceImpl implements OrderQueryService {
     @Override
     public Optional<Order> handle(GetOrderByIdQuery query) {
         return repository.findOrderById(query.id());
+    }
+
+    @Override
+    public Optional<Order> handle(GetOrderByCustomerIdQuery query) {
+        return repository.findOrderByCustomerId(query.customerId());
     }
 }
