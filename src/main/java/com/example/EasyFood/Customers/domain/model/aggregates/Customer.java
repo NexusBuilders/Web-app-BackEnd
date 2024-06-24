@@ -6,21 +6,25 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "customers")
 @Getter
+@Setter
 @NoArgsConstructor
 public class Customer extends AuditableAbstractAggregateRoot<Customer> {
     private String firstName;
     private String lastName;
     private String email;
     private String phone;
+    private int userId;
 
     public Customer(CreateCustomerCommand command){
         this.firstName = command.firstName();
         this.lastName = command.lastName();
         this.email = command.email();
         this.phone = command.phone();
+        this.userId = command.userId();
     }
 }

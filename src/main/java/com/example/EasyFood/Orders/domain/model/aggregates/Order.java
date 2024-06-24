@@ -15,10 +15,12 @@ public class Order extends AuditableAbstractAggregateRoot<Order> {
     private String address;
     private String arriveTime;
     private Double totalAmount;
+    private int customerId;
 
     public Order(CreateOrderCommand command) {
         this.address = command.address();
         this.arriveTime = command.arriveTime();
         this.totalAmount = command.totalAmount();
+        this.customerId = command.customerId();
     }
 }

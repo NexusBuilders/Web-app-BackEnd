@@ -15,8 +15,8 @@ public class OrderContextFacade {
 
     public Long CreateOrder(String address,
                             String arriveTime,
-                            Double totalAmount){
-        var createOrderCommand = new CreateOrderCommand(address, arriveTime, totalAmount);
+                            Double totalAmount, int customerId){
+        var createOrderCommand = new CreateOrderCommand(address, arriveTime, totalAmount, customerId);
         var order = orderCommandService.handle(createOrderCommand);
         if (order.isEmpty()) {return 0L;}
         return order.get().getId();

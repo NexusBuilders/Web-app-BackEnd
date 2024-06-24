@@ -36,6 +36,7 @@ public class WebSecurityConfiguration {
         return http
                 .cors(configurer -> configurer.configurationSource(x -> {
                     var cors = new CorsConfiguration();
+                    cors.setAllowedOrigins(List.of("https://easyfoodgroup4.web.app/"));
                     cors.setAllowedOrigins(List.of("*"));
                     cors.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "PATCH"));
                     cors.setAllowedHeaders(List.of("*"));

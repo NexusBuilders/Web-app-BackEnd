@@ -6,7 +6,7 @@ public record CreateCustomerCommand(
         @NotBlank String firstName,
         @NotBlank String lastName,
         @NotBlank String email,
-        @NotBlank String phone
-
+        @NotBlank String phone,
+        @NotBlank int userId
 ) {
 }

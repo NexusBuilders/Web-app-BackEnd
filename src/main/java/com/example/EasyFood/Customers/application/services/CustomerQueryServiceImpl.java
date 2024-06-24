@@ -2,6 +2,7 @@ package com.example.EasyFood.Customers.application.services;
 
 import com.example.EasyFood.Customers.domain.model.aggregates.Customer;
 import com.example.EasyFood.Customers.domain.model.queries.GetCustomerByIdQuery;
+import com.example.EasyFood.Customers.domain.model.queries.GetCustomerByUserIdQuery;
 import com.example.EasyFood.Customers.domain.service.CustomerQueryService;
 import com.example.EasyFood.Customers.infraestructure.persistence.jpa.CustomerRepository;
 import org.springframework.stereotype.Service;
@@ -19,5 +20,10 @@ public class CustomerQueryServiceImpl implements CustomerQueryService {
     @Override
     public Optional<Customer> handle(GetCustomerByIdQuery query) {
         return customerRepository.findCustomerById(query.id());
+    }
+
+    @Override
+    public Optional<Customer> handle(GetCustomerByUserIdQuery query) {
+        return customerRepository.findCustomerByUserId(query.userId());
     }
 }

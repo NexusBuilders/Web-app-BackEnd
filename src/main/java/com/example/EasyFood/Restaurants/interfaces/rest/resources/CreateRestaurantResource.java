@@ -5,6 +5,7 @@ public record CreateRestaurantResource(
         String address,
         String email,
         String schedule,
-        String phone
+        String phone,
+        int userId
 ) {
 }

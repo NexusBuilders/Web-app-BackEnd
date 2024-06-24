@@ -5,6 +5,6 @@ import com.example.EasyFood.Restaurants.interfaces.rest.resources.RestaurantReso
 
 public class RestaurantResourceFromEntityAssembler {
     public static RestaurantResource toResourceFromEntity(Restaurant entity) {
-        return new RestaurantResource(entity.getId(),entity.getName(),entity.getAddress(),entity.getEmail(),entity.getSchedule(),entity.getPhone());
+        return new RestaurantResource(entity.getId(),entity.getName(),entity.getAddress(),entity.getEmail(),entity.getSchedule(),entity.getPhone(), entity.getUserId());
     }
 }

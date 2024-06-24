@@ -4,6 +4,7 @@ public record CreateCustomerResource(
         String firstName,
         String lastName,
         String email,
-        String phone
+        String phone,
+        int userId
 ) {
 }

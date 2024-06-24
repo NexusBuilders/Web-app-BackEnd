@@ -6,6 +6,6 @@ import jakarta.persistence.Entity;
 
 public class OrderResourceFromEntityAssembler {
     public static OrderResource toResourceFromEntity(Order entity){
-        return  new OrderResource(entity.getId(), entity.getAddress(), entity.getArriveTime(), entity.getTotalAmount());
+        return  new OrderResource(entity.getId(), entity.getAddress(), entity.getArriveTime(), entity.getTotalAmount(),entity.getCustomerId());
     }
 }

@@ -5,6 +5,6 @@ import com.example.EasyFood.Restaurants.interfaces.rest.resources.CreateRestaura
 
 public class CreateRestaurantCommandFromResourceAssembler {
     public static CreateRestaurantCommand toCommandResource(CreateRestaurantResource resource) {
-        return new CreateRestaurantCommand(resource.name(),resource.address(),resource.email(),resource.schedule(),resource.phone());
+        return new CreateRestaurantCommand(resource.name(),resource.address(),resource.email(),resource.schedule(),resource.phone(),resource.userId());
     }
 }
